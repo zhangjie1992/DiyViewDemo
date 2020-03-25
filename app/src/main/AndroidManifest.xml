@@ -17,12 +17,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".anim.activity.Z1Activity" />
         <activity android:name=".sample.activity.InfoActivity" />
+
+<!--        动画-->
+        <activity android:name=".anim.activity.Z1Activity" />
         <activity android:name=".anim.activity.Z2Activity" />
         <activity android:name=".anim.activity.Z3Activity" />
         <activity android:name=".anim.activity.Z4Activity" />
-        <activity android:name=".activity.DiyTest1Activity"></activity>
+
+        <!--        绘制-->
+        <activity android:name=".draw.DrawActivity"/>
+
+
+
+
+        <activity android:name=".activity.DiyTest1Activity"/>
     </application>
 
 </manifest>

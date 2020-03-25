@@ -11,6 +11,7 @@ import iloveu.lanchong.android.diyview.anim.activity.Z1Activity;
 import iloveu.lanchong.android.diyview.anim.activity.Z2Activity;
 import iloveu.lanchong.android.diyview.anim.activity.Z3Activity;
 import iloveu.lanchong.android.diyview.anim.activity.Z4Activity;
+import iloveu.lanchong.android.diyview.draw.DrawActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -46,10 +47,22 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+
+
     public void test1(View view) {
         Intent intent = new Intent(this, DiyTest1Activity.class);
         startActivity(intent);
     }
+
+
+    //绘制
+
+
+    public void draw(View view) {
+        Intent intent = new Intent(this, DrawActivity.class);
+        startActivity(intent);
+    }
+
 
 
 

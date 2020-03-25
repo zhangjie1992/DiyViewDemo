@@ -57,6 +57,17 @@
 
 
 
+            <View style="@style/bigItemSpace" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="draw"
+                android:text="绘制" />
+
+            <View style="@style/smallItemSpace" />
+
+
         </LinearLayout>
     </ScrollView>
 
