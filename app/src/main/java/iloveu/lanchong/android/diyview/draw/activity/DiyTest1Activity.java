@@ -1,4 +1,4 @@
-package iloveu.lanchong.android.diyview.activity;
+package iloveu.lanchong.android.diyview.draw.activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import iloveu.lanchong.android.diyview.R;
-import iloveu.lanchong.android.diyview.view.DiyTest1View1;
+import iloveu.lanchong.android.diyview.draw.view.DiyTest1View1;
 
 public class DiyTest1Activity extends AppCompatActivity {
 

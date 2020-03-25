@@ -10,6 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".layout.activity.FlowLayoutActivity"></activity>
         <activity android:name=".sample.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,21 +18,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".sample.activity.InfoActivity" />
-
-<!--        动画-->
+        <activity android:name=".sample.activity.InfoActivity" /> <!-- 动画 -->
         <activity android:name=".anim.activity.Z1Activity" />
         <activity android:name=".anim.activity.Z2Activity" />
         <activity android:name=".anim.activity.Z3Activity" />
-        <activity android:name=".anim.activity.Z4Activity" />
-
-        <!--        绘制-->
-        <activity android:name=".draw.DrawActivity"/>
-
-
-
-
-        <activity android:name=".activity.DiyTest1Activity"/>
+        <activity android:name=".anim.activity.Z4Activity" /> <!-- 绘制 -->
+        <activity android:name=".draw.activity.DrawActivity" />
+        <activity android:name=".draw.activity.DiyTest1Activity" />
     </application>
 
 </manifest>

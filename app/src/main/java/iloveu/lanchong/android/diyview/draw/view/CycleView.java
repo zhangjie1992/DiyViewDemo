@@ -1,29 +1,32 @@
-package iloveu.lanchong.android.diyview.draw;
+package iloveu.lanchong.android.diyview.draw.view;
 
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.view.View;
 
-public class CycleView2 extends View {
+public class CycleView extends View {
 
     Paint paint;
     int width = 100;
     int height = 100;
 
-    public CycleView2(Context context) {
+
+    public CycleView(Context context) {
         this(context,null);
     }
 
-    public CycleView2(Context context, AttributeSet attrs) {
+    public CycleView(Context context, AttributeSet attrs) {
         this(context, attrs,0);
     }
 
-    public CycleView2(Context context, AttributeSet attrs, int defStyleAttr) {
+    public CycleView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context);
     }
@@ -46,28 +49,24 @@ public class CycleView2 extends View {
 
         //禁用硬件加速
         setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+        //使用离屏绘制
+        int layerID = canvas.saveLayer(0, 0, getWidth(), getHeight(), paint, Canvas.ALL_SAVE_FLAG);
 
-        Bitmap bitmapDST = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
-        Canvas canvasDST = new Canvas(bitmapDST);
-        canvasDST.drawCircle(width/2,height/2,width/2,paint);
+        canvas.drawBitmap(createDstBigmap(width, height), 0, 0, paint);
+        paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+        canvas.drawBitmap(createSrcBigmap(width, height), 0, 0, paint);
+        paint.setXfermode(null);
 
-//        Bitmap dstBigmap = createDstBigmap(width, height);
-
-        Bitmap srcBigmap = createSrcBigmap(width, height);
-
-
-        canvas.drawBitmap(srcBigmap,0,0,paint);
-
-
-//        PorterDuffXfermode porterDuffXfermode = new PorterDuffXfermode(PorterDuff.Mode.ADD);
-//        paint.setXfermode(porterDuffXfermode);
-//
-//        canvas.drawCircle();
+        canvas.restoreToCount(layerID);
 
     }
 
-
-
+    /**
+     * 圆
+     * @param width
+     * @param height
+     * @return
+     */
     public Bitmap createDstBigmap(int width, int height) {
         Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(bitmap);
@@ -77,16 +76,22 @@ public class CycleView2 extends View {
         return bitmap;
     }
 
-
+    /**
+     * 方
+     * @param width
+     * @param height
+     * @return
+     */
     public Bitmap createSrcBigmap(int width, int height) {
         Bitmap bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(bitmap);
-        Paint paint = new Paint();
-        paint.setColor(0xff000000);
-        Rect rect = new Rect(0,0,width,height);
-        canvas.drawRect(rect,paint);
+        Paint dstPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        dstPaint.setColor(0xFF000000);
+        canvas.drawRect(new Rect(0, 0, width, height), dstPaint);
         return bitmap;
     }
+
+
 
 
 

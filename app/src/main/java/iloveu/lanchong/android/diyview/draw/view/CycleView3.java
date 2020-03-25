@@ -1,4 +1,4 @@
-package iloveu.lanchong.android.diyview.draw;
+package iloveu.lanchong.android.diyview.draw.view;
 
 import android.content.Context;
 import android.graphics.Bitmap;

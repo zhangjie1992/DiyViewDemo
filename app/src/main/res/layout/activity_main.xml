@@ -45,6 +45,25 @@
                 android:onClick="AnimatorSet"
                 android:text="AnimatorSet" />
 
+
+
+
+            <View style="@style/bigItemSpace" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="layout"
+                android:text="布局" />
+
+            <View style="@style/smallItemSpace" />
+
+
+
+
+
+
+
             <View style="@style/bigItemSpace" />
 
             <TextView
@@ -54,10 +73,6 @@
                 android:text="概述及基本几何图形绘制" />
 
             <View style="@style/smallItemSpace" />
-
-
-
-            <View style="@style/bigItemSpace" />
 
             <TextView
                 android:layout_width="match_parent"

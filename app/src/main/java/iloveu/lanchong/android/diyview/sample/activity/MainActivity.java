@@ -6,12 +6,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import iloveu.lanchong.android.diyview.R;
-import iloveu.lanchong.android.diyview.activity.DiyTest1Activity;
+import iloveu.lanchong.android.diyview.draw.activity.DiyTest1Activity;
 import iloveu.lanchong.android.diyview.anim.activity.Z1Activity;
 import iloveu.lanchong.android.diyview.anim.activity.Z2Activity;
 import iloveu.lanchong.android.diyview.anim.activity.Z3Activity;
 import iloveu.lanchong.android.diyview.anim.activity.Z4Activity;
-import iloveu.lanchong.android.diyview.draw.DrawActivity;
+import iloveu.lanchong.android.diyview.draw.activity.DrawActivity;
+import iloveu.lanchong.android.diyview.layout.activity.FlowLayoutActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -48,14 +49,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    //布局
 
-    public void test1(View view) {
-        Intent intent = new Intent(this, DiyTest1Activity.class);
+    public void layout(View view) {
+        Intent intent = new Intent(this, FlowLayoutActivity.class);
         startActivity(intent);
     }
 
 
     //绘制
+
+    public void test1(View view) {
+        Intent intent = new Intent(this, DiyTest1Activity.class);
+        startActivity(intent);
+    }
 
 
     public void draw(View view) {

@@ -1,4 +1,4 @@
-package iloveu.lanchong.android.diyview.draw;
+package iloveu.lanchong.android.diyview.draw.activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
