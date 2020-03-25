@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".anim.activity.Z4Activity">
+
+    <include layout="@layout/include_info" />
+
+
+    <Button
+        android:id="@+id/btn_myPointView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="animatorSet"
+        android:textAllCaps="false"
+        android:text="animatorSet" />
+
+    <Button
+        android:id="@+id/btn_xml"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="xml"
+        android:textAllCaps="false"
+        app:layout_constraintLeft_toRightOf="@+id/btn_myPointView"
+        android:text="xml实现" />
+
+
+
+    <View
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/animView"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@color/colorAccent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_menu1"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:onClick="menuClick1"
+        android:text="1"
+        android:textAllCaps="false"
+        android:background="@drawable/bg_menu"
+        app:layout_constraintCircle="@+id/btn_menu"
+        />
+
+    <Button
+        android:id="@+id/btn_menu2"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:onClick="menuClick2"
+        android:textAllCaps="false"
+        android:text="2"
+        android:background="@drawable/bg_menu"
+        app:layout_constraintCircle="@+id/btn_menu"
+        />
+
+    <Button
+        android:id="@+id/btn_menu3"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:onClick="menuClick3"
+        android:text="3"
+        android:textAllCaps="false"
+        android:background="@drawable/bg_menu"
+        app:layout_constraintCircle="@+id/btn_menu"
+        />
+
+
+    <Button
+        android:id="@+id/btn_menu"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:onClick="menuClick"
+        android:textAllCaps="false"
+        android:background="@drawable/bg_menu"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="20dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+         />
+
+
+
+
+</android.support.constraint.ConstraintLayout>

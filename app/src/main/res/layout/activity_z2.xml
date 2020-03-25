@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".anim.activity.Z2Activity">
+
+    <include layout="@layout/include_info" />
+
+
+    <Button
+        android:id="@+id/btn_alpha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="valueAnimatorAlpha"
+        android:text="Alpha"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="valueAnimatorLayout"
+        android:text="layout"
+        android:textAllCaps="false"
+        app:layout_constraintLeft_toRightOf="@+id/btn_alpha" />
+
+    <Button
+        android:id="@+id/btn_interpolator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="valueAnimatorInterpolator"
+        android:text="interpolator"
+        android:textAllCaps="false"
+        app:layout_constraintLeft_toRightOf="@+id/btn_layout" />
+
+    <Button
+        android:id="@+id/btn_myInterpolator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="myInterpolator"
+        android:text="自定义Interpolator"
+        android:textAllCaps="false"
+        app:layout_constraintLeft_toRightOf="@+id/btn_interpolator" />
+
+    <Button
+        android:id="@+id/btn_argbEvaluator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="argbEvaluator"
+        android:text="argbEvaluator"
+        android:textAllCaps="false"
+        app:layout_constraintTop_toBottomOf="@+id/btn_alpha" />
+
+    <Button
+        android:id="@+id/btn_myEvaluator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="myEvaluator"
+        android:text="自定义Evaluator"
+        android:textAllCaps="false"
+        app:layout_constraintLeft_toRightOf="@+id/btn_argbEvaluator"
+        app:layout_constraintTop_toBottomOf="@+id/btn_alpha" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="myPointView"
+        android:text="自定义myPointView"
+        android:textAllCaps="false"
+        app:layout_constraintLeft_toRightOf="@+id/btn_myEvaluator"
+        app:layout_constraintTop_toBottomOf="@+id/btn_alpha" />
+
+
+    <Button
+        android:id="@+id/btn_cancel"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:onClick="animCancel"
+        android:text="cancel"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+
+    <View
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/animView"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@color/colorAccent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/animCharView"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@color/colorAccent"
+        android:gravity="center"
+        android:text="evaluator练习"
+        android:textColor="@android:color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <iloveu.lanchong.android.diyview.anim.view.AnimationPointView
+        android:id="@+id/myPointView"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/animView" />
+
+
+</android.support.constraint.ConstraintLayout>

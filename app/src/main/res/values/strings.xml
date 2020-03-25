@@ -1,0 +1,109 @@
+<resources>
+    <string name="app_name">DIYView</string>
+
+
+    <string name="info">
+        https://blog.csdn.net/harvic880925/article/details/39996643 \n
+
+        View Animation包括Tween Animation(补间动画)和Frame Animation(帧动画) \n
+        Property Animator包括ValueAnimator和ObjectAnimator \n
+        区别:Animation为Api1就有，Animator在Android4.0才有； \n
+            Anmation在android.view.animation包，后者在android.animation包 \n
+            Anmator动画是通过改变view的属性 \n
+        \n
+        为什么有Animator?\n
+        Animation如何实现view从绿色慢慢变成红色？没有思路吧，Animator可以 \n
+        Animation只能对指定的控件做动画，而Animator是控制属性 \n
+         \n
+        为什么Animation位移后，View的点击区域没变？ \n
+        因为Animation是动画实现是通过其Parent View实现的，在View被draw时ParentView改变它的绘制参数，但是View的实际属性没变 \n
+        \n
+        Animator创建实例常用的方法? \n
+        ofInt(),ofFloat(),ofObject(),ofPropertyValuesHolder(),foKeyframe() \n
+        所用方法底层都是封装成PropertyValuesHolder类 \n
+        \n
+        Animator中的动画关键类? \n
+        Interpolator,Evaluator。见Z2AnimatorInfo \n
+        PropertyValuesHolder 见Z3AnimatorInfo\n
+        KeyFrame 关键帧 见Z3AnimatorInfo \n
+        \n
+        Animator中的动画流程? \n
+        ValueAnimator ofInt(0,400) -> Interpolator -> Evaluator -> 监听器返回,手动设置 \n
+        ObjectAnimator ofFloat(view,"scaleX",0,4) -> Interpolator -> Evaluator -> 通过反射调用view的set方法 \n
+        \n
+        ObjectAnimator使用注意事项？ \n
+        不论是ObjectAnimator/PropertyValuesHolder/KeyFrame注意使用ofInt(),ofFloat()需要对应set方法参数类型
+        \n
+        复杂动画怎么做？ \n
+        使用PropertyValuesHolder结合Keyframe \n
+        \n
+    </string>
+
+    <string name="Z1AnimationInfo">
+        补间动画 animation \n
+        动作定义文件应该存放在res/anim文件夹 \n
+        最难的是pivotX/Y属性，当做scale时 \n
+        它并不影响撑大的倍数。在外部时最好的方式就是从0撑大，这样作为起始点，方便理解 \n
+        pivot为自己的50%那就是向上下左右撑大自己\n
+        \n
+        从Animation类继承的属性 \n
+        android:duration 动画持续时间，以毫秒为单位 \n
+        android:fillAfter 如果设置为true，控件动画结束时，将保持动画最后时的状态 \n
+        android:fillBefore/fillEnabled  如果设置为true,控件动画结束时，还原到开始动画前的状态 \n
+        android:repeatCount 重复次数 infinite表示无限 \n
+        android:repeatMode	重复类型，reverse或者restart,必须与repeatCount一起使用 \n
+        android:interpolator  设定插值器，其实就是指定的动作效果，比如弹跳效果等，不在这小节中讲解，后面会单独列出一单讲解。 \n
+        \n
+        android:pivotX  缩放起点X轴坐标，可以是数值、百分数、百分数p 三种样式，比如 50、50%、50%p，\n
+        当为数值时，表示在当前View的左上角，即原点处加上50px，做为起始缩放点； \n
+        如果是50%，表示在当前控件的左上角加上自己宽度的50%做为起始点； \n
+        如果是50%p，那么就是表示在当前的左上角加上父控件宽度的50%做为起始点x轴坐标。（具体意义，后面会举例演示）\n
+    </string>
+
+
+    <string name="Z2AnimatorInfo">
+        属性动画 ValueAnimator,Interpolator,Evaluator讲解 \n
+        Interpolator \n
+        主要看接口TimeInterpolator#getInterpolation(float input): float; \n
+        参数input:表示当前动画的时间进度，取0时表示动画刚开始，取1时表示动画结束。比如动画时间为1000ms，那么0.5表示当前是500ms \n
+        返回值：表示当前实际想要显示的进度。取值可以超过1也可以小于0，超过1表示已经超过目标值，小于0表示小于开始位置。 \n
+        \n
+        Evaluator 求值程序 参考ArabEvaluate.evaluate源码 \n
+        最好的例子是ARGBEvaluator,通过startA，startR，startG,startB及相应的结束值,计算出动画对应时刻的A，R，G,B并返回 \n
+    </string>
+
+    <string name="Z3AnimatorInfo">
+        属性动画 animator \n
+        ObjectAnimator讲解 \n
+        \n
+        objectAnimator可以调用的view的属性？\n
+        view的属性有set方法就能调用\n
+        透明度：alpha \n
+        旋转度数：rotation、rotationX、rotationY \n
+        平移：translationX、translationY \n
+        缩放：scaleX、scaleY \n
+        \n
+        KeyFrame \n
+        关键帧 使用方法PropertyValuesHolder.ofKeyFrame() \n
+        如果去掉第0帧，将以第一个关键帧为起始位置 \n
+        如果去掉结束帧，将以最后一个关键帧为结束位置 \n
+        使用Keyframe来构建动画，至少要有两个或两个以上帧 \n
+        \n
+    </string>
+
+    <string name="Z4AnimatorSetInfo">
+        AnimatorSet \n
+        如果ObjectAnimator与AnimatorSet同时设置During等属性，已AnimatorSet为准。 \n
+        如果AnimatorSet未设置，那么各自已自己来为准 \n
+        但是有一项较为特殊 \n
+        - AnimatorSet的延时是仅针对性的延长AnimatorSet激活时间的，对单个动画的延时设置没有影响。 \n
+        - AnimatorSet真正激活延时 = AnimatorSet.startDelay+第一个动画.startDelay  \n
+        - 在AnimatorSet激活之后，第一个动画绝对是会开始运行的，后面的动画则根据自己是否延时自行处理。\n
+        \n
+        xml实现
+
+
+    </string>
+
+
+</resources>
