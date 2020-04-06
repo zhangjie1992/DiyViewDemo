@@ -105,5 +105,13 @@
 
     </string>
 
+    <string name="WindowLayoutParamsInfo">
+        本例子做的事情 \n
+            1.修改了Activity的宽高 \n
+            2.修改了Dialog的宽高 \n
+        都是基于修改Window的LayoutParams实现的 \n
+        底层原理：ViewRootImpl.performTraversals生成DocorView的MeasureSpec，使用的是window的size+WindowManager.layoutParams \n
+    </string>
+
 
 </resources>

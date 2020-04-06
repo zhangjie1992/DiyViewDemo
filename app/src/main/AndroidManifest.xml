@@ -10,7 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".layout.activity.FlowLayoutActivity"></activity>
+
         <activity android:name=".sample.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,9 +22,17 @@
         <activity android:name=".anim.activity.Z1Activity" />
         <activity android:name=".anim.activity.Z2Activity" />
         <activity android:name=".anim.activity.Z3Activity" />
-        <activity android:name=".anim.activity.Z4Activity" /> <!-- 绘制 -->
+        <activity android:name=".anim.activity.Z4Activity" />
+        <!-- 绘制 -->
         <activity android:name=".draw.activity.DrawActivity" />
         <activity android:name=".draw.activity.DiyTest1Activity" />
+        <!--自定义控件课程-->
+        <activity android:name=".vg.activity.FlowLayoutActivity"/>
+
+        <activity android:name=".unspecified.activity.WindowLayoutParamsActivity" />
+        <activity android:name=".unspecified.activity.DiyAttrsActivity" />
+
+
     </application>
 
 </manifest>

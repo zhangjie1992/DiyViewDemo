@@ -5,18 +5,17 @@ import android.animation.TypeEvaluator;
 import android.animation.ValueAnimator;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.animation.BounceInterpolator;
 import android.widget.TextView;
 
+import iloveu.lanchong.android.diyview.BaseActivity;
 import iloveu.lanchong.android.diyview.R;
-import iloveu.lanchong.android.diyview.sample.activity.InfoActivity;
 import iloveu.lanchong.android.diyview.anim.evaluator.CharEvaluator;
 import iloveu.lanchong.android.diyview.anim.interpolator.MyInterpolator;
 import iloveu.lanchong.android.diyview.anim.view.AnimationPointView;
 
-public class Z2Activity extends AppCompatActivity {
+public class Z2Activity extends BaseActivity {
 
     private View mAnimView;
     private ValueAnimator valueAnimator;
@@ -29,10 +28,9 @@ public class Z2Activity extends AppCompatActivity {
         mAnimView = findViewById(R.id.animView);
     }
 
-
-    public void showInfo(View view){
-        String info = getResources().getString(R.string.Z2AnimatorInfo);
-        InfoActivity.show(this,info);
+    @Override
+    public int getInfo() {
+        return R.string.Z2AnimatorInfo;
     }
 
 

@@ -1,4 +1,4 @@
-package iloveu.lanchong.android.diyview.layout.view;
+package iloveu.lanchong.android.diyview.vg.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -31,70 +31,69 @@ public class FlowLayoutView extends ViewGroup {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-//        setMeasuredDimension(getDefaultSize(getSuggestedMinimumWidth(), widthMeasureSpec), getDefaultSize(getSuggestedMinimumHeight(), heightMeasureSpec));
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         initParams();
         int totalHeight = 0;
+        int totalMaxWidth = 0;
 
-        int currWidthLine = 0;
-
-        int maxWidthLine = 0;
-        int maxHeightLine = 0;
-        List<View> lineChilds = new ArrayList<>();
-        mLines.add(lineChilds);
+        int currLineWidth = 0;
+        int currLineMaxHeight = 0;
+        List<View> currLineChilds = new ArrayList<>();
+        mLines.add(currLineChilds);
 
         int horiPadding = getPaddingLeft() + getPaddingRight();
         int verticalPadding = getPaddingTop() + getPaddingBottom();
 
         int widthMode = MeasureSpec.getMode(widthMeasureSpec);
-        int heightMode = MeasureSpec.getMode(heightMeasureSpec);
         int widthSize = MeasureSpec.getSize(widthMeasureSpec);
+        int heightMode = MeasureSpec.getMode(heightMeasureSpec);
         int heightSize = MeasureSpec.getSize(heightMeasureSpec);
 
         //测量孩子
-
         int childCount = getChildCount();
         for (int i = 0; i < childCount; i++) {
             View child = getChildAt(i);
             LayoutParams layoutParams = child.getLayoutParams();
-            lineChilds.add(child);
-
 
             int childWidthMeasureSpec = getChildMeasureSpec(widthMeasureSpec, horiPadding, layoutParams.width);
             int childHeightMeasureSpec = getChildMeasureSpec(heightMeasureSpec, verticalPadding, layoutParams.height);
             child.measure(childWidthMeasureSpec, childHeightMeasureSpec);
 
-
-            int childHeight = child.getMeasuredHeight();
             int childWidth = child.getMeasuredWidth();
+            int childHeight = child.getMeasuredHeight();
 
-            maxHeightLine = Math.max(maxHeightLine, childHeight);
+            if (nextLine(widthSize, currLineWidth, childWidth)) {
+                //换行
+                //保存旧行的数据
+                totalHeight += currLineMaxHeight;
+                totalMaxWidth = Math.max(totalMaxWidth, currLineWidth);
 
+                //新行
+                currLineChilds = new ArrayList<>();
+                mLines.add(currLineChilds);
+            }
 
-            if (nextLine(widthSize, currWidthLine, childWidth)) {
-                totalHeight += maxHeightLine;
-                maxHeightLine = 0;
+            //记录数据到当前行
+            currLineChilds.add(child);
+            currLineWidth += childWidth;
+            currLineMaxHeight = Math.max(currLineMaxHeight, childHeight);
 
-                maxWidthLine = Math.max(maxWidthLine, currWidthLine);
-                currWidthLine = 0;
-
-                lineChilds = new ArrayList<>();
-                mLines.add(lineChilds);
-            } else {
-                currWidthLine += childWidth;
+            if (i + 1 == childCount) {
+                //最后一条数据（如果这里不写，那么数据只有一行时，totalHeight、totalMaxWidth都是0）
+                totalHeight += currLineMaxHeight;
+                totalMaxWidth = Math.max(totalMaxWidth, currLineWidth);
             }
         }
 
-        //测量自己
-        int measuredWidth = widthMode == MeasureSpec.EXACTLY ? widthSize : maxWidthLine;
+
+        //保存测量结果
+        int measuredWidth = widthMode == MeasureSpec.EXACTLY ? widthSize : totalMaxWidth;
         int measuredHeight = heightMode == MeasureSpec.EXACTLY ? heightSize : totalHeight;
         setMeasuredDimension(measuredWidth, measuredHeight);
     }
 
-    private boolean nextLine(int widthSize, int currWidthLine, int childWidth) {
-        if (currWidthLine + childWidth >= widthSize) {
-            return true;
-        }
-        return false;
+    private boolean nextLine(int widthSize, int widthCurrLine, int childWidth) {
+        return widthCurrLine + childWidth >= widthSize;
     }
 
 

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<declare-styleable name="AttrView"><!--用在当前view上-->
+		<attr name="android:gravity" /><!--复用系统的name，所以不需要format-->
+		<attr name="horizonSpacing" format="dimension|reference"/>
+	</declare-styleable>
+	<declare-styleable name="AttrView_Layout"><!--用在子view上，带layout的-->
+		<attr name="android:layout_gravity" /><!--复用系统的name，所以不需要format-->
+	</declare-styleable>
+</resources>

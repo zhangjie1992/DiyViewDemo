@@ -1,0 +1,3 @@
+vg是自定义viewgroup
+
+主要实现onMeasure、onLayout

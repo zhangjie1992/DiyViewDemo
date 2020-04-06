@@ -8,13 +8,13 @@ import android.animation.Keyframe;
 import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import iloveu.lanchong.android.diyview.BaseActivity;
 import iloveu.lanchong.android.diyview.R;
 import iloveu.lanchong.android.diyview.sample.activity.InfoActivity;
 
-public class Z4Activity extends AppCompatActivity {
+public class Z4Activity extends BaseActivity {
 
     private View mAnimView;
     private Animator mAnimator;
@@ -27,9 +27,9 @@ public class Z4Activity extends AppCompatActivity {
         mAnimView = findViewById(R.id.animView);
     }
 
-    public void showInfo(View view){
-        String info = getResources().getString(R.string.Z4AnimatorSetInfo);
-        InfoActivity.show(this,info);
+    @Override
+    public int getInfo() {
+        return R.string.Z4AnimatorSetInfo;
     }
 
 

@@ -4,57 +4,103 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".layout.activity.FlowLayoutActivity">
+    tools:context=".vg.activity.FlowLayoutActivity">
 
-    <iloveu.lanchong.android.diyview.layout.view.FlowLayoutView
-        android:layout_width="wrap_content"
+    <iloveu.lanchong.android.diyview.vg.view.FlowLayoutView
+        android:layout_width="40dp"
         android:layout_height="wrap_content"
-        >
+        android:background="#0f0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:text="123213"
-            />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1" />
 
         <TextView
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:text="123213"
-            />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="22" />
 
         <TextView
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:text="123213"
-            />
-        <TextView
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:text="123213"
-            />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="333" />
 
         <TextView
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:text="123213"
-            />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="44444" />
 
         <TextView
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:text="123213"
-            />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="55555" />
 
         <TextView
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:text="123213"
-            />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="11" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="222" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3333" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4444" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="555555" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="66666666" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="11" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="222" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3333" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4444" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="555555" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:text="长文本长文本长文本" />
 
 
-
-
-    </iloveu.lanchong.android.diyview.layout.view.FlowLayoutView>
+    </iloveu.lanchong.android.diyview.vg.view.FlowLayoutView>
 
 </android.support.constraint.ConstraintLayout>

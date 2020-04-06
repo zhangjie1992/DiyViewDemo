@@ -49,16 +49,13 @@
 
 
             <View style="@style/bigItemSpace" />
-
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:onClick="layout"
-                android:text="布局" />
+                android:onClick="flowLayoutView"
+                android:text="自定义FlowLayoutView" />
 
             <View style="@style/smallItemSpace" />
-
-
 
 
 
@@ -79,6 +76,27 @@
                 android:layout_height="wrap_content"
                 android:onClick="draw"
                 android:text="绘制" />
+
+            <View style="@style/smallItemSpace" />
+
+
+
+
+
+            <View style="@style/bigItemSpace" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="modifyWindowLayoutParams"
+                android:text="修改window的LayoutParams来修改window大小" />
+
+            <View style="@style/smallItemSpace" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="diyAttrs"
+                android:text="自定义属性" />
 
             <View style="@style/smallItemSpace" />
 

@@ -1,15 +1,21 @@
-package iloveu.lanchong.android.diyview.layout.activity;
+package iloveu.lanchong.android.diyview.vg.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 
+import iloveu.lanchong.android.diyview.BaseActivity;
 import iloveu.lanchong.android.diyview.R;
 
-public class FlowLayoutActivity extends AppCompatActivity {
+public class FlowLayoutActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flow_layout);
     }
+
+    @Override
+    public int getInfo() {
+        return 0;
+    }
+
 }

@@ -12,7 +12,9 @@ import iloveu.lanchong.android.diyview.anim.activity.Z2Activity;
 import iloveu.lanchong.android.diyview.anim.activity.Z3Activity;
 import iloveu.lanchong.android.diyview.anim.activity.Z4Activity;
 import iloveu.lanchong.android.diyview.draw.activity.DrawActivity;
-import iloveu.lanchong.android.diyview.layout.activity.FlowLayoutActivity;
+import iloveu.lanchong.android.diyview.unspecified.activity.DiyAttrsActivity;
+import iloveu.lanchong.android.diyview.vg.activity.FlowLayoutActivity;
+import iloveu.lanchong.android.diyview.unspecified.activity.WindowLayoutParamsActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -51,7 +53,9 @@ public class MainActivity extends AppCompatActivity {
 
     //布局
 
-    public void layout(View view) {
+
+
+    public void flowLayoutView(View view) {
         Intent intent = new Intent(this, FlowLayoutActivity.class);
         startActivity(intent);
     }
@@ -69,6 +73,21 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, DrawActivity.class);
         startActivity(intent);
     }
+
+
+    //未指定分类
+
+    public void modifyWindowLayoutParams(View view) {
+        Intent intent = new Intent(this, WindowLayoutParamsActivity.class);
+        startActivity(intent);
+    }
+    public void diyAttrs(View view) {
+        Intent intent = new Intent(this, DiyAttrsActivity.class);
+        startActivity(intent);
+    }
+
+
+
 
 
 

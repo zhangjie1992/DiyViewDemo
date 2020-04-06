@@ -6,17 +6,17 @@ import android.animation.Keyframe;
 import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.animation.BounceInterpolator;
 import android.view.animation.OvershootInterpolator;
 
 import iloveu.lanchong.android.diyview.App;
+import iloveu.lanchong.android.diyview.BaseActivity;
 import iloveu.lanchong.android.diyview.R;
-import iloveu.lanchong.android.diyview.sample.activity.InfoActivity;
 import iloveu.lanchong.android.diyview.anim.view.MyObjectAnimatorPointView;
+import iloveu.lanchong.android.diyview.sample.activity.InfoActivity;
 
-public class Z3Activity extends AppCompatActivity {
+public class Z3Activity extends BaseActivity {
 
     private View mAnimView;
     private Animator mAnimator;
@@ -29,9 +29,9 @@ public class Z3Activity extends AppCompatActivity {
         mAnimView = findViewById(R.id.animView);
     }
 
-    public void showInfo(View view){
-        String info = getResources().getString(R.string.Z3AnimatorInfo);
-        InfoActivity.show(this,info);
+    @Override
+    public int getInfo() {
+        return R.string.Z3AnimatorInfo;
     }
 
     /**
