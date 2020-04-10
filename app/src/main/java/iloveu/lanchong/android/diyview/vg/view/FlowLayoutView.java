@@ -2,6 +2,7 @@ package iloveu.lanchong.android.diyview.vg.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -10,9 +11,9 @@ import java.util.List;
 
 
 /**
- * 目前展示不对，只显示一行
+ * 流布局
  */
-public class FlowLayoutView extends ViewGroup {
+public class FlowLayoutView extends ViewGroup implements View.OnClickListener {
 
     private final List<List<View>> mLines = new ArrayList<>();
 
@@ -53,14 +54,18 @@ public class FlowLayoutView extends ViewGroup {
         int childCount = getChildCount();
         for (int i = 0; i < childCount; i++) {
             View child = getChildAt(i);
+            child.setOnClickListener(this);
             LayoutParams layoutParams = child.getLayoutParams();
 
             int childWidthMeasureSpec = getChildMeasureSpec(widthMeasureSpec, horiPadding, layoutParams.width);
             int childHeightMeasureSpec = getChildMeasureSpec(heightMeasureSpec, verticalPadding, layoutParams.height);
+            int size = MeasureSpec.getSize(childWidthMeasureSpec);
             child.measure(childWidthMeasureSpec, childHeightMeasureSpec);
 
             int childWidth = child.getMeasuredWidth();
             int childHeight = child.getMeasuredHeight();
+
+            Log.e("zjzjzj", "childWidthMeasureSpec size:" + size + " getMeasuredWidth:" + childWidth );
 
             if (nextLine(widthSize, currLineWidth, childWidth)) {
                 //换行
@@ -103,6 +108,7 @@ public class FlowLayoutView extends ViewGroup {
 
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
+        Log.e("zjzjzj", "l:" + l + " t:" + t + " r:" + r + " b:" + b);
         int childRealL = l + getPaddingLeft();
         int childRealT = t + getPaddingTop();
         int currL = childRealL;
@@ -125,4 +131,18 @@ public class FlowLayoutView extends ViewGroup {
     }
 
 
+    @Override
+    public void onClick(View v) {
+        float x = v.getX();
+        float y = v.getY();
+
+        int left = v.getLeft();
+        int top = v.getTop();
+        int right = v.getRight();
+
+        int width = v.getWidth();
+        int measuredWidth = v.getMeasuredWidth();
+        Log.e("zjzjzj", "x:" + x + " y:" + y + " left:" + left + " top:" + top +"right:"+right);
+        Log.e("zjzjzj", "width:" + width + " measuredWidth:" + measuredWidth );
+    }
 }

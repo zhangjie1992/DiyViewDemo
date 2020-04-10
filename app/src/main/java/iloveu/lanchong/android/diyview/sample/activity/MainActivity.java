@@ -12,6 +12,7 @@ import iloveu.lanchong.android.diyview.anim.activity.Z2Activity;
 import iloveu.lanchong.android.diyview.anim.activity.Z3Activity;
 import iloveu.lanchong.android.diyview.anim.activity.Z4Activity;
 import iloveu.lanchong.android.diyview.draw.activity.DrawActivity;
+import iloveu.lanchong.android.diyview.unspecified.activity.AndroidViewCoordinateActivity;
 import iloveu.lanchong.android.diyview.unspecified.activity.DiyAttrsActivity;
 import iloveu.lanchong.android.diyview.vg.activity.FlowLayoutActivity;
 import iloveu.lanchong.android.diyview.unspecified.activity.WindowLayoutParamsActivity;
@@ -83,6 +84,10 @@ public class MainActivity extends AppCompatActivity {
     }
     public void diyAttrs(View view) {
         Intent intent = new Intent(this, DiyAttrsActivity.class);
+        startActivity(intent);
+    }
+    public void viewCoordinate(View view) {
+        Intent intent = new Intent(this, AndroidViewCoordinateActivity.class);
         startActivity(intent);
     }
 

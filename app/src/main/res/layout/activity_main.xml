@@ -100,6 +100,14 @@
 
             <View style="@style/smallItemSpace" />
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="viewCoordinate"
+                android:text="视图坐标系" />
+
+            <View style="@style/smallItemSpace" />
+
 
         </LinearLayout>
     </ScrollView>
